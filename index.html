@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Exclusive Videos</title>
+    <style>
+        /* --- CSS: Making it Pretty --- */
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #777777;
+            --primary-color: #6c5ce7;
+            --primary-hover: #5b4bc4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Password Page Styles */
+        #password-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .login-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .error-msg {
+            color: #e74c3c;
+            font-size: 14px;
+            display: none;
+            margin-top: 10px;
+        }
+
+        /* Main Content Styles */
+        #main-content {
+            display: none; /* Hidden by default */
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--text-main);
+            margin-bottom: 40px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .video-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .video-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .video-date {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .video-desc {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .video-link {
+            display: inline-block;
+            background-color: #ff0000;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-link:hover {
+            opacity: 0.8;
+        }
+
+        /* Subscribe Section */
+        .subscribe-section {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="password-page">
+        <div class="login-box">
+            <h2>Private Vault</h2>
+            <p>Please enter the password to view the videos.</p>
+            <input type="password" id="password-input" placeholder="Enter password">
+            <button onclick="checkPassword()">Enter</button>
+            <p class="error-msg" id="error-msg">Incorrect password. Try again.</p>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <h1>My Unlisted Archives</h1>
+
+        <div class="video-card">
+            <div class="video-header">
+                <h3 class="video-title">Project Walkthrough</h3>
+                <span class="video-date">July 13, 2026</span>
+            </div>
+            <p class="video-desc">This is a detailed explanation of the new system architecture. I cover the front-end design and the backend logic in this 20-minute video.</p>
+            <a href="https://youtube.com/watch?v=YOUR_LINK_HERE" target="_blank" class="video-link">▶ Watch on YouTube</a>
+        </div>
+
+        <div class="video-card">
+            <div class="video-header">
+                <h3 class="video-title">Weekly Update Vlog</h3>
+                <span class="video-date">July 06, 2026</span>
+            </div>
+            <p class="video-desc">Just a quick unlisted update on where we are at with the current milestones. Grab a coffee and tune in.</p>
+            <a href="https://youtube.com/watch?v=YOUR_LINK_HERE" target="_blank" class="video-link">▶ Watch on YouTube</a>
+        </div>
+
+        <div class="subscribe-section">
+            <h2>Get Notified</h2>
+            <p>Leave your email below and I'll ping you whenever I upload a new unlisted video to this site.</p>
+            <form action="#" method="POST" onsubmit="handleSubscribe(event)">
+                <input type="email" placeholder="your.email@example.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // CHANGE THIS TO YOUR DESIRED PASSWORD
+        const CORRECT_PASSWORD = "secretvideo"; 
+
+        function checkPassword() {
+            const userInput = document.getElementById('password-input').value;
+            const errorMsg = document.getElementById('error-msg');
+            const passwordPage = document.getElementById('password-page');
+            const mainContent = document.getElementById('main-content');
+
+            if (userInput === CORRECT_PASSWORD) {
+                // If correct, hide password page and show main content
+                passwordPage.style.display = 'none';
+                mainContent.style.display = 'block';
+            } else {
+                // If wrong, show error message
+                errorMsg.style.display = 'block';
+            }
+        }
+
+        // Allow pressing "Enter" on the keyboard to submit password
+        document.getElementById("password-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                checkPassword();
+            }
+        });
+
+        // Handle the fake subscribe button click
+        function handleSubscribe(event) {
+            event.preventDefault(); // Prevents the page from refreshing
+            alert("Thanks for subscribing! You will be notified of new uploads.");
+        }
+    </script>
+</body>
+</html>
