@@ -222,9 +222,11 @@
         
         <div class="subscribe-section">
             <h2>Get Notified</h2>
-            <p>Leave your email below and I'll ping you whenever I upload a new unlisted video to this site. (not working currently)</p>
-            <form action="#" method="POST" onsubmit="handleSubscribe(event)">
-                <input type="email" placeholder="your.email@example.com" required>
+            <p>Leave your email below and I'll send you an email whenever I upload a new unlisted video to this site!</p>
+            <!-- Update the action URL with your real Formspree link -->
+            <form action="https://formspree.io/f/mlgqjpgy" method="POST">
+                <!-- Note the new name="email" attribute here! -->
+                <input type="email" name="email" placeholder="your.email@example.com" required>
                 <button type="submit">Subscribe</button>
             </form>
         </div>
