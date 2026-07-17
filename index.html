@@ -9,7 +9,7 @@
         :root {
             --bg-color: #f4f7f6;
             --card-bg: #ffffff;
-            --text-main: #D69300;
+            --text-main: #FFA647;
             --text-muted: #777777;
             --primary-color: #6c5ce7;
             --primary-hover: #5b4bc4;
@@ -152,6 +152,17 @@
             opacity: 0.8;
         }
 
+        /* --- NEW THUMBNAIL CSS --- */
+        .video-thumbnail {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            object-fit: cover;
+            aspect-ratio: 16 / 9; /* Keeps standard YouTube video proportions */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
         /* Subscribe Section */
         .subscribe-section {
             background: var(--card-bg);
@@ -179,28 +190,36 @@
     <div id="main-content">
         <h1>My Unlisted Vlogs!</h1>
 
+        <!-- Video 1: Thrifting Saturday -->
         <div class="video-card">
+            <!-- Replace 'YOUR_VIDEO_ID' below with the actual 11-character ID from your unlisted video -->
+            <img class="video-thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" alt="Thrifting Saturday Thumbnail">
+            
             <div class="video-header">
                 <h3 class="video-title">FAST VLOG (No edits): Trifting Saturday!</h3>
                 <span class="video-date">12 Jul 2026</span>
             </div>
-            <p class="video-desc">JI am trying this new no edit vlogs. Let me know if its fun to watch :) \nSee you in the next videos!</p>
+            <p class="video-desc">I am trying this new no edit vlogs. Let me know if its fun to watch :) <br>See you in the next videos!</p>
             <a href="https://youtube.com/watch?v=YOUR_LINK_HERE" target="_blank" class="video-link">▶ Watch on YouTube</a>
         </div>
 
+        <!-- Video 2: Kız Neşesi (Thumbnail URL added!) -->
         <div class="video-card">
+            <!-- This URL pulls the high-res thumbnail directly from YouTube using your video ID -->
+            <img class="video-thumbnail" src="https://img.youtube.com/vi/-L5TfYvcQFI/maxresdefault.jpg" alt="Kız Neşesi Thumbnail">
+            
             <div class="video-header">
                 <h3 class="video-title">VLOG: Kız Neşesi - Kıbrıs Günlükleri</h3>
                 <span class="video-date">18 Aug 2025</span>
             </div>
-            <p class="video-desc">07.08.2025 - 12.08.2025 \n
-                Kuzey Kıbrıs Türk Cumhuriyeti tatilimiz!\n
-                İyi seyirler!\n
-                \n
+            <p class="video-desc">07.08.2025 - 12.08.2025 <br><br>
+                Kuzey Kıbrıs Türk Cumhuriyeti tatilimiz!<br>
+                İyi seyirler!<br><br>
                 Kız Neşesi’nden sevgilerle, yeni maceralarda görüşmek üzere!</p>
             <a href="https://youtu.be/-L5TfYvcQFI" target="_blank" class="video-link">▶ Watch on YouTube</a>
         </div>
 
+        
         <div class="subscribe-section">
             <h2>Get Notified</h2>
             <p>Leave your email below and I'll ping you whenever I upload a new unlisted video to this site. (not working currently)</p>
